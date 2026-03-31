@@ -9,14 +9,11 @@
 </head>
 <body>
 <header class="navbar">
-  <!-- Left: Logo -->
   <div class="nav-left">
     <a href="/" class="logo">
       <img src="Minimalist logo for .png" alt="Logo" class="logo-img">
     </a>
   </div>
-  
-  <!-- Middle: Main Nav Links -->
   <div class="nav-center">
     <a href="#home" class="nav-link">Home</a>
     <a href="#services" class="nav-link">Services</a>
@@ -24,7 +21,7 @@
     <a href="#contact" class="nav-link">Contact Us</a>
   </div>
   
-  <!-- Right: Dashboard -->
+
   <div class="nav-right">
     <a href="/dashboard" class="nav-link dashboard">Dashboard</a>
   </div>
@@ -40,7 +37,7 @@
           <p class="sec-1-3">rediscover the freshness of your clothes today!</p>
         <button class="btn-booking "><ion-icon name="storefront-outline"></ion-icon>Book a service today!</button>
     </div>
-     <div class="col span_1_of_2 home-right" secc">
+     <div class="col span_1_of_2 home-right sec-c">
         <img src="img2.png" alt="img" class="sec-1-4">
      </div>
  </div>   
@@ -157,11 +154,12 @@
                     <th>S.No</th>
                     <th>Service</th>
                     <th>Price</th>
+                    <th>Action</th> 
                 </tr>
             </thead>
                   <tbody id="cart-items">
         <tr class="empty-row">
-          <td colspan="3" class="empty">
+          <td colspan="4" class="empty">
             <div class="empty-box">
               <p class="empty-icon">ⓘ</p>
               <p class="empty-text">No Items Added</p>
@@ -189,7 +187,7 @@
  </div> 
 </div>
 </section>
-<footer class="footer ">
+<footer id="about" class="footer">
   <div class="footer-1 group">
     <div class="footer-2 col span_1_of_4">
      <img src="laundry.png" alt="">
@@ -236,7 +234,7 @@
   </div>
 </div>
 
-<div class="footer-last">
+<div id="contact" class="footer-last">
   <div class="last-1 l-1">
     <img src="Minimalist logo for .png" alt="">
     <h5>About us </h5>
@@ -271,6 +269,12 @@
 </footer>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    emailjs.init({
+      publicKey: "YOUR_PUBLIC_KEY"
+    });
+  </script>
 <script src="script.js"></script>
 </body>
 </html>
