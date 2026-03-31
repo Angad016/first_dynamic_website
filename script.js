@@ -1,93 +1,165 @@
-let cart = [];
-let total = 0;
+//first i want to say sorry for to use ai genrated js code , but the below whole code is written by me, thank you sir for understanding 
+  
+/* there is a button book service today so for that
+   i have to make a auto scroll effect and i am printing
+   book button click in console to check the button is working or not */
+const bookBtn = document.querySelector(".btn-booking");
 
-// Select elements
-const buttons = document.querySelectorAll(".add-btn");
-const cartTable = document.getElementById("cart-items");
-const totalDisplay = document.getElementById("total");
+bookBtn.addEventListener("click", function () {
+  console.log("Book button clicked");
 
-// Add item to cart
-buttons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-
-    const item = btn.closest("li");
-    const name = item.querySelector(".service-text").childNodes[0].textContent.trim();
-    const priceText = item.querySelector(".price").textContent.replace("₹", "");
-    const price = parseFloat(priceText);
-
-    // Add to cart
-    cart.push({ name, price });
-
-    updateCart();
+  document.getElementById("services").scrollIntoView({
+    behavior: "smooth"
   });
 });
 
-// Update cart UI
-function updateCart() {
-  cartTable.innerHTML = "";
-  total = 0;
 
-  cart.forEach((item, index) => {
-    total += item.price;
+// i have to store cart items so i will use array
+let cart = [];
 
+// selecting elements from html by mentioning their classes and ids
+const buttons = document.querySelectorAll(".add-btn"); 
+const cartItems = document.getElementById("cart-items"); 
+const totalPrice = document.getElementById("total");
+
+// below to make cart working i have to first search it by the push and it 
+//should get upadte in Ui also 
+// when user clicks add button
+buttons.forEach(function(btn){
+  btn.addEventListener("click", function(){
+
+    console.log("Add button clicked");
+
+    const item = btn.parentElement;
+
+    // service name getting
+    const name = item.querySelector(".service-text").innerText;
+
+    // price getting
+    const priceText = item.querySelector(".price").innerText;
+
+    // converting ₹ to number
+    const price = parseInt(priceText.replace("₹", ""));
+
+    console.log("Item:", name, price);
+
+    // pushing into cart
+    cart.push({
+      name: name,
+      price: price
+    });
+
+    console.log("Cart:", cart);
+
+    displayCart(); // updating UI
+  });
+});
+
+
+// function to display cart items
+function displayCart() {
+
+  // clear previous items
+  cartItems.innerHTML = "";
+
+  let total = 0;
+
+  // loop through cart
+  for (let i = 0; i < cart.length; i++) {
+
+    const item = cart[i];
+
+    total = total + item.price;
+
+    // creating table row
     const row = document.createElement("tr");
 
     row.innerHTML = `
-      <td>${index + 1}</td>
+      <td>${i + 1}</td>
       <td>${item.name}</td>
       <td>₹${item.price}</td>
+      <td><button onclick="removeItem(${i})">Remove</button></td>
     `;
 
-    cartTable.appendChild(row);
-  });
+    cartItems.appendChild(row);
+  }
 
-  // Empty cart message
+  // update total
+  totalPrice.innerText = total;
+
+  console.log("Total:", total);
+
+  // if no items
   if (cart.length === 0) {
-    cartTable.innerHTML = `
-      <tr class="empty-row">
-        <td colspan="3" class="empty">
-          <div class="empty-box">
-            <p class="empty-icon">ⓘ</p>
-            <p class="empty-text">No Items Added</p>
-            <p class="empty-sub">Add items to the cart from the services bar</p>
-          </div>
-        </td>
+    cartItems.innerHTML = `
+      <tr>
+        <td colspan="4">No Items Added</td>
       </tr>
     `;
   }
-
-  totalDisplay.textContent = total;
 }
 
 
-// ================= BOOKING =================
+// remove item function
+function removeItem(index) {
+  console.log("Removing item index:", index);
 
-const bookBtn = document.querySelector(".btn-book");
+  cart.splice(index, 1);
 
-bookBtn.addEventListener("click", () => {
-  const name = document.getElementById("full-name").value.trim();
-  const email = document.getElementById("email-id").value.trim();
-  const phone = document.getElementById("phone-number").value.trim();
+  displayCart();
+}
 
+
+// BOOK NOW BUTTON
+const bookNowBtn = document.querySelector(".btn-book");
+
+bookNowBtn.addEventListener("click", function () {
+
+  const name = document.getElementById("full-name").value;
+  const email = document.getElementById("email-id").value;
+  const phone = document.getElementById("phone-number").value;
+
+  console.log("User Data:", name, email, phone);
+
+  // validation
+  if (name === "" || email === "" || phone === "") {
+    alert("Please fill all details");
+    return;
+  }
+
+  // email format check
+  if (!email.includes("@")) {
+    alert("Enter valid email");
+    return;
+  }
+
+  // phone number check (10 digits)
+  if (phone.length !== 10) {
+    alert("Enter valid phone number");
+    return;
+  }
+
+  // cart check
   if (cart.length === 0) {
-    alert("⚠️ Please add at least one service");
+    alert("Cart is empty");
     return;
   }
 
-  if (!name || !email || !phone) {
-    alert("⚠️ Please fill all details");
-    return;
-  }
+  // success message (thank you message)
+  alert("Thank you! Your booking is successful ✅");
 
-  alert(`✅ Booking Confirmed!
-Name: ${name}
-Total: ₹${total}`);
-
-  // Reset everything
+  // reset cart
   cart = [];
-  updateCart();
+  displayCart();
 
+  // clear form
   document.getElementById("full-name").value = "";
   document.getElementById("email-id").value = "";
   document.getElementById("phone-number").value = "";
 });
+
+//sir what i doen i call elments priting messages  in consoleto check is any problem
+//and make things working or not and also i have added validation for email and phone number 
+// and also i have added alert for success message and also if any error occurs in form filling then also
+// i have added alert for that also and also i have added remove button in cart to remove items from cart
+// and also i have added total price calculation and also i have added auto scroll effect for book service
