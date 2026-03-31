@@ -4,7 +4,10 @@
     box-sizing: border-box;
   
 }
-
+ /*ACTUALLY SIR THIS CODE CSS CODE IS WRITEEN BY CONDIERING THAT 
+ EACH SECTION SHOULD HAVE A MAX-WIDTH OF 1200PX AND SHOULD BE CENTERED IN
+  THE PAGE WITH AUTO MARGIN AND ALSO I HAVE USED FLEXBOX TO MAKE THE AND THE WHOLE HTML 
+  AND CSS WAS WRITTEN BY ME EARLIER ALSO COZ ALONE CSS TAKED MY 5 DAYS*/
  
 .navbar {
   display: flex;
@@ -405,13 +408,12 @@ input {
   line-height: 1.2;
 }
 .extent{
-  width: 340px;      /* SAME width */
+  width: 340px;      
   height: 55px; 
 }
 .same,
 .sus {
-  width: 260px;      /* SAME width */
-  height: 55px;      /* SAME height */
+  height: 55px;      
   padding: 10px 40px;
   border: none;
   outline: none;
@@ -426,7 +428,7 @@ input {
 
 }
 
-/* keep spacing between inputs */
+
 .footer-les input {
   margin-right: 10px;
   background-color: #89c0fa;
@@ -435,7 +437,6 @@ input {
   
 }
 
-/* button styling */
 .sus {
   background: #ddd;
   cursor: pointer;
@@ -453,33 +454,30 @@ input {
   gap: 30px;
 }
 
-/* each column */
 .last-1 {
   flex: 1;
   min-width: 200px;
 }
 
-/* logo */
+
 .last-1 img {
   width: 120px;
   margin-bottom: 15px;
 }
 
-/* headings */
+
 .last-1 h5 {
   font-size: 18px;
   margin-bottom: 15px;
   font-weight: 600;
 }
 
-/* text */
 .last-1 span {
   font-size: 14px;
   line-height: 1.6;
   opacity: 0.8;
 }
 
-/* list */
 .last-1 ul {
   list-style: none;
   padding: 0;
@@ -489,7 +487,7 @@ input {
   margin-bottom: 10px;
 }
 
-/* links */
+
 .last-1 ul li a {
   text-decoration: none;
   color: #7d7b7b;
@@ -501,7 +499,7 @@ input {
   color: #89c0fa;
 }
 
-/* contact links (email/phone) */
+
 .last-1 a {
   display: block;
   margin-bottom: 10px;
@@ -513,7 +511,7 @@ input {
   color: #89c0fa;
 }
 
-/* social icons */
+
 .last-1 ion-icon {
   font-size: 22px;
   margin-right: 10px;
@@ -531,7 +529,7 @@ input {
 .l-4{
   padding-left: 20px;
 }
-/* ================= SMALL MOBILE (<=480px) ================= */
+
 @media (max-width: 480px) {
   .sec-1-1 { font-size: 28px; }
   .sec-2-2 { font-size: 28px; }
@@ -543,8 +541,6 @@ input {
   }
 }
 
-
-/* ================= MOBILE (<=768px) ================= */
 @media (max-width: 768px) {
 
   .navbar {
@@ -595,8 +591,6 @@ input {
   }
 }
 
-
-/* ================= TABLET (769px - 1024px) ================= */
 @media (min-width: 769px) and (max-width: 1024px) {
 
   .sec-1 {
@@ -622,8 +616,6 @@ input {
   }
 }
 
-
-/* ================= SMALL LAPTOP (1025px - 1280px) ================= */
 @media (min-width: 1025px) and (max-width: 1280px) {
 
   .sec-1-1 { font-size: 60px; }
@@ -642,7 +634,7 @@ input {
 }
 
 
-/* ================= LARGE SCREEN (1281px+) ================= */
+
 @media (min-width: 1281px) {
 
   .sec-1-1 { font-size: 75px; }
@@ -659,21 +651,21 @@ input {
     width: 400px;
   }
 }
-/* Make cart box fixed height */
+
 .sec-2-8 {
   display: flex;
   flex-direction: column;
-  height: 335px; /* you can adjust */
+  height: 335px; 
 }
 
-/* Make table scrollable */
+
 .sec-2-8 table {
   display: block;
   
   max-height: 250px;
 }
 
-/* Keep total at bottom */
+
 .total {
   margin-top: auto;
 }
@@ -682,7 +674,7 @@ input {
   border-collapse: collapse;
 }
 
-/* Scroll ONLY tbody, not full table */
+
 #cart-items {
   display: block;
   max-height: 200px;
@@ -690,7 +682,7 @@ input {
   width: 100%;
 }
 
-/* Keep header aligned */
+
 thead, tbody tr {
   display: table;
   width: 100%;
